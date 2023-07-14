@@ -283,21 +283,20 @@
             const price = {}
 
             const onigiriPriceList = {
-                "Sake":		     4.7,
-                "Tori Teriyaki":  4.5,
+                "Sake": 4.7,
+                "Tori Teriyaki" : 4.5,
                 "Tsuna Mayo" : 4.5,
                 "Tamago" : 4.2,
                 "Kimchi" : 4,
-                "Miso Cream Cheese": 4
+                "Miso Cream Cheese": 4,
             }
 
-const onigiriPriceList = {
-
-// //TODO: これをカテゴリに
-// Sushi Burrito
-// - Veggie	11.9
-// - Sake	12.9
-// - Chicken Teriyaki		   12.9
+            const burittoPriceList = {
+        // //TODO: これをカテゴリに
+        // Sushi Burrito
+                "Burrito Veggie": 11.9,
+                "Burrito Sake":	12.9,
+                "Buritto Chicken Teriyaki": 12.9
             }
 
             const sideDishesPriceList = {
@@ -313,12 +312,12 @@ const onigiriPriceList = {
                 "Vegan Gyoza V餃子": 5.9,
             }
 
-            const ramenPriceList = {
-                "Duck Ramen": 15.90,
-                "Tempura Ramen": 14.90,
-                "Sesam, Tantan, Torikotsu": 13.90,
-                "Miso, Shoyu": 13.90,
-            }
+            // const ramenPriceList = {
+            //     "Duck Ramen": 15.90,
+            //     "Tempura Ramen": 14.90,
+            //     "Sesam, Tantan, Torikotsu": 13.90,
+            //     "Miso, Shoyu": 13.90,
+            // }
 
             const extraPriceList = {
                 "Big Portion": 3.9,
@@ -378,7 +377,7 @@ const onigiriPriceList = {
             //add to global price list.
             //TODO: なんかこれ列挙してるのきれいではないわ。。。。
             Object.assign(price, sideDishesPriceList);
-            Object.assign(price, ramenPriceList);
+            Object.assign(price, burittoPriceList);
             Object.assign(price, extraPriceList);
             Object.assign(price, extraToppingPriceList);
             Object.assign(price, dessertPriceList);
@@ -429,8 +428,8 @@ const onigiriPriceList = {
             addFoodItem(sideDishesArea, sideDishesPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
 
             // add item for finger food
-            let ramenArea = document.querySelector("#burrito_area");
-            addFoodItem(ramenArea, ramenPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+            let burittoArea = document.querySelector("#burrito_area");
+            addFoodItem(burittoArea, burittoPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
 
             // add item for toppings
             let extraArea = document.querySelector("#extra_area");
