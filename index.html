@@ -2,12 +2,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>HAGE DENTAKU</title>
-
+    <title>HAGE DENTAKU</title>   
     <head>
-
     <body>
-
         <style type="text/css">
             .bg_white {
                 background-color: #ffffff;
@@ -54,7 +51,6 @@
             #first_warning {
                 color: red;
             }
-
 
             /* この名前のクラスにdivに与えて、そのdivでinputを加工必要がある。
         https://blog.raizzenet.com/change-size-checkbox/ */
@@ -122,9 +118,13 @@
             <br>
 
             <hr>
-            【APPETIZER】
-            <div id="vorspeisen_area">
+            【Onigiri/オニギリ】
+            <div id="onigiri_area">
             </div>
+
+            <hr>
+            【Burrito/ブリトー】
+            <div id="burrito_area"></div>
 
             <hr>
             【SIDE DISHES/サイド】
@@ -144,10 +144,6 @@
             <div id="extra_area"></div>
 
             <hr>
-            【RAMEN/ラーメン】
-            <div id="ramen_area"></div>
-
-            <hr>
             【TOPPING/トッピング】
             <div id="topping_area"></div>
 
@@ -158,8 +154,7 @@
             <hr>
             【LUNCH/ランチ】
             <div id="lunch_menu_area"></div>
-
-           
+          
             <hr>
             【DESSERT/デザート】
             <div id="dessert_area"></div>
@@ -175,9 +170,11 @@
         <text id=current_item>Last added: </text>
         <br>
         合計額: <text id="subtotal_display">0</text>
+
+
+        <!--
         <br>
         お釣り： <text id="change_display"></text>
-
 
         <br>
         申し出額(チップ込)：
@@ -188,9 +185,9 @@
         受取額(チップ込)：
         <input type="number" pattern="\d*" id="sum_received" onchange="calcChange()" onblur="calcOnBlur(this)"
             onfocus="bgChangeIn(this)">
+        -->
 
         <hr>
-
         <div class="align_wrap">
             <button id="rest_button" onclick="reset()">CLEAR</button>
         </div>
@@ -201,8 +198,10 @@
             オーダー数/ORDERED: <text id="num_items_display">0</text>
         </h3>
         <div style="color: red; font-weight:bold">
+            <!--
             オーダーカードと数の突き合わせをすること！
             MATCH THE NUMBER ON THE ORDER CARD!
+            -->
         </div>
 
         <ul type="disc" id="order_list_display_area"></ul>
@@ -283,14 +282,22 @@
             //商品メニュー
             const price = {}
 
-            const vorspeisenPriceList = {
-                "Pak Choi Salad": 4.6,
-                // "Hijiki Salad": 4.3,
-                // "Kinpira  Salad": 4.3,
-                "Edamame": 4.6,
-                "Kimch": 4.6,
-                "Wakame Salad": 4.6,
-                "Eryngii Salad": 4.6,
+            const onigiriPriceList = {
+                "Sake":		     4.7,
+                "Tori Teriyaki":  4.5,
+                "Tsuna Mayo" : 4.5,
+                "Tamago" : 4.2,
+                "Kimchi" : 4,
+                "Miso Cream Cheese": 4
+            }
+
+const onigiriPriceList = {
+
+// //TODO: これをカテゴリに
+// Sushi Burrito
+// - Veggie	11.9
+// - Sake	12.9
+// - Chicken Teriyaki		   12.9
             }
 
             const sideDishesPriceList = {
@@ -380,7 +387,7 @@
             Object.assign(price, lunchMenuPriceList);
             Object.assign(price, riceDishPriceList);
             Object.assign(price, otherItemPriceList);
-            Object.assign(price, vorspeisenPriceList);
+            Object.assign(price, onigiriPriceList);
 
 
             // add food item with line break
@@ -414,15 +421,15 @@
 
             //TODO: これ以降も自動化したい
             // add item for vorspeisen
-            let vorspeisenArea = document.querySelector("#vorspeisen_area");
-            addFoodItem(vorspeisenArea, vorspeisenPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+            let vorspeisenArea = document.querySelector("#onigiri_area");
+            addFoodItem(vorspeisenArea, onigiriPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
 
             // add item for finger food
             let sideDishesArea = document.querySelector("#side_dishes_area");
             addFoodItem(sideDishesArea, sideDishesPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
 
             // add item for finger food
-            let ramenArea = document.querySelector("#ramen_area");
+            let ramenArea = document.querySelector("#burrito_area");
             addFoodItem(ramenArea, ramenPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
 
             // add item for toppings
