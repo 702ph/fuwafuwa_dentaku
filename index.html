@@ -2,8 +2,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FUWAFUWA DENTAKU</title>   
+    <title>FUWAFUWA DENTAKU</title>
+
     <head>
+
     <body>
         <style type="text/css">
             .bg_white {
@@ -132,13 +134,15 @@
             </div>
 
             <hr>
-            【Warm Drinks/温かい飲み物】
-            <div id="warm_drinks_area"></div>
-
-            <hr>
             【Cold Drinks/冷たい飲み物】
             <div id="cold_drinks_area"></div>
 
+            <hr>
+            【Warm Drinks/温かい飲み物】
+            <div id="warm_drinks_area"></div>
+
+
+            <!--
             <hr>
             【EXTRA】
             <div id="extra_area"></div>
@@ -149,12 +153,12 @@
 
             <hr>
             【RICE DISH】
-            <div id="rice_dish_area"></div> 
+            <div id="rice_dish_area"></div>
 
             <hr>
             【LUNCH/ランチ】
             <div id="lunch_menu_area"></div>
-          
+
             <hr>
             【DESSERT/デザート】
             <div id="dessert_area"></div>
@@ -162,6 +166,7 @@
             <hr>
             【Others/その他】
             <div id="other_item_area"></div>
+            -->
 
         </div>
 
@@ -283,33 +288,33 @@
             const price = {}
 
             const onigiriPriceList = {
-                "Sake": 4.7,
-                "Tori Teriyaki" : 4.5,
-                "Tsuna Mayo" : 4.5,
-                "Tamago" : 4.2,
-                "Kimchi" : 4,
-                "Miso Cream Cheese": 4,
+                "Sake Onirigi": 4.7,
+                "Tori Teriyaki Onirigi": 4.5,
+                "Tsuna Mayo Onirigi": 4.5,
+                "Tamago Onirigi": 4.2,
+                "Kimchi Onirigi": 4,
+                "Miso Cream Cheese Onirigi": 4,
             }
 
             const burittoPriceList = {
-        // //TODO: これをカテゴリに
-        // Sushi Burrito
+                // //TODO: これをカテゴリに
+                // Sushi Burrito
                 "Burrito Veggie": 11.9,
-                "Burrito Sake":	12.9,
+                "Burrito Sake": 12.9,
                 "Buritto Chicken Teriyaki": 12.9
             }
 
             const sideDishesPriceList = {
-                "Tamago Yaki": 5.3,
-                "Croquette": 5.3,
-                "Chicken Katsu": 5.9,
-                "Chicken Teriyaki": 5.6,
-                "Kakiage Tempura": 5.3,
-                "Ebifry": 6.9,
-                "Karaage 唐揚げ": 5.6,
-                "Vegan Karaage V唐揚げ": 5.9,
-                "Gyoza 餃子": 5.6,
-                "Vegan Gyoza V餃子": 5.9,
+                "Takoyaki": 9.9,
+                "Tamagoyaki": 5.8,
+                "Kimchi": 4.9,
+                "Gyoza": 6.2,
+                "Veggie Gyoza": 6.2,
+                "Pak Choi": 4.9,
+                "Edamame": 5.3,
+                "Taiyaki": 4,
+                "Dango": 4,
+                "Mochi Cream": 6,
             }
 
             // const ramenPriceList = {
@@ -320,54 +325,34 @@
             // }
 
             const extraPriceList = {
-                "Big Portion": 3.9,
-                "Extra Spicy": 1.2,
             };
 
             const extraToppingPriceList = {
-                "Egg": 1.5,
-                "Chashu": 2.5,
-                "Naruto": 1.5,
-                "Naruto(V)": 1.7,
-                "Tantan Meat": 2.5,
-                "Topping Duck": 5.9,
-                "Eryngii Topping": 1.7,
-                "Pak Choi Topping": 1.7,
-                "Beyond Meat": 2.5,
-                "Topping Tempura": 4.9,
-                "Garlic": 1.2,
             };
 
-            // extraとラーメンの位置を入れ替える。
 
             const dessertPriceList = {
-                "Cheese Cake": 4.60,
-                "Mochi, Dorayaki, Dango, Taiyaki": 3.9,
-                "Matcha Sponge Cake": 5.30,
-                // "Mochi Ice 餅アイス": 2.50,
-                "Ice Cream": 2.50,
             };
 
 
             const warmDrinksPriceList = {
-                "Tee": 3.5,
             };
 
             const coldDrinksPriceList = {
-                "Calpico": 3.9,
-                "Wasser": 3.3,
-                "Aloe, Soft drinks(Cola系)": 3.5,
-                "Ice Tea, Bubble Tea , Soda, Bier, Sencha, Ramune, Tonyu": 3.9,
+                "Cola/Zero, Fanta, Mezzo Mix": 3.8,
+                "Yuzu Soda (Jap. Zitrone)": 4.7,
+                "Bubble Tea": 4.7,
+                "Peach Eistee": 4.7,
+                "Aloe Vera Original": 3.8,
+                "Aloe Mango": 3.8,
+                "Ramune": 4.2,
+                "Sencha": 4.2,
             };
 
             const riceDishPriceList = {
-                "Curryカレー": 12.90,
-                "Don(丼) ": 11.90,
-                "Rice 単品": 2.50,
             };
 
             const lunchMenuPriceList = {
-                "Lunch/ランチ": 14.90
             };
 
             const otherItemPriceList = {
