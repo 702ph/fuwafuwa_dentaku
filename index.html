@@ -38,9 +38,22 @@
                 color: #ffffff;
             }
 
+            /* input[type=checkbox] {
+                transform: scale(2.5);
+            } */
+
+            .menu-item {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
             input[type=checkbox] {
                 transform: scale(2.5);
+                margin-right: 20px;
             }
+
+
 
             #ordered_items_header {
                 text-align: center;
@@ -151,7 +164,7 @@
             <div id="noodle_soup_ramen_area"></div>
             <div id="noodle_soup_udon_area"></div>
             <div id="noodle_soup_options_area"></div>
-      
+
             <hr>
             【Side Dish】
             <div id="side_dish_area"></div>
@@ -288,113 +301,137 @@
             const price = {}
 
             const menuItems = {
-            "classics": {
-                "Okonomi-Beef&Bonito": 13.9,
-                "Okonomi-Vegetarian": 12.9,
-                "Okonomi-Vegan": 11.9,
-                "Curry-Beef": 12.9,
-                "Curry-Chicken": 12.9,
-                "Curry-Vegetarian": 11.9,
-                "Curry-Vegan": 10.9,
-                "Gyudon": 13.9
-            },
-            "classicsOptions": {
-                "+Okonomi-Hiroshima Noodles": 2,
-                "+Okonomi-Bonito": 0.5,
-                "+Okonomi-Dead Spicy": 0.5,
-                "+Curry-Dead Spicy": 0.5,
-                "+Gyudon-Dead Spicy": 0.5,
-            },
-            "noodleSoupRamen": {
-                "Ramen-Miso": 12.9,
-                "Ramen-Creamy,Spicy Sesame": 13.5,
-                "Ramen-Angry Ramen": 13.9
-            },
-            "noodleSoupUdon": {
-                "Udon-Kitsune": 12.9,
-                "Udon-Kakiage/Niku/Curry/Sesame": 13.9,
-                "Udon-EbiTempura": 14.9
-            },
-            "noodleSoupOptions": {
-                "+Ramen-Egg": 1,
-                "+Ramen-Dead Spicy": 0.5,
-                "+Udon-Poached Egg": 1,
-                "+Udon-Dead Spicy": 0.5,
-            },
-            "sideDish": {
-                "Edamame/Kimchi/Wakame": 4.5,
-                "Nikuman/Kakiage": 5.5,
-                "Gyoza/VGyoza": 5.9,
-                "Karaage": 6.3,
-                // "Vegan Karaage": 6.5,
-                "Ebi Tempura/Takoyaki": 6.9,
-                "Onigiri": 4.3
-            },
-            "dessert": {
-                "Ice Cream": 2,
-                "Mochi/Dango/Taiyaki": 4.2,
-                "Dorayaki/Melonpan": 4.6,
-                "Crêpe": 7.9,
-                "Honey Toast": 9.9,
-                "Parfait": 7.9,
-                "Sweets Set": 10.9
-            },
-            "dessertOptions": {
-                "+Strawberry": 1,
-                "+Ice cream": 1.5
-            },
-            "drinkCold": {
-                "Float Drink": 6.9,
-                "Creamy Latte": 6.5,
-                "Bubble Tea": 5.2,
-                "Cola/Zero/Water": 3.9,
-                "Ramune/Erdinger": 4.2,
-                "Eistee": 4.9,
-                "Soda": 4.7,
-            },
-            "drinkHot": {
-                "Hot Tea": 4.3,
-                "Hot Latte": 5.7,
-                "Hot Caffè Latte": 4.5,
-                "Americano": 4.0
-            },
-            "drinkOptions": {
-                "+Drink-Hafer": 0.5
-            }
-        };
+                "classics": {
+                    "Okonomi-Beef&Bonito": 13.9,
+                    "Okonomi-Vegetarian": 12.9,
+                    "Okonomi-Vegan": 11.9,
+                    "Curry-Beef": 12.9,
+                    "Curry-Chicken": 12.9,
+                    "Curry-Vegetarian": 11.9,
+                    "Curry-Vegan": 10.9,
+                    "Gyudon": 13.9
+                },
+                "classicsOptions": {
+                    "+Okonomi-Hiroshima Noodles": 2,
+                    "+Okonomi-Bonito": 0.5,
+                    "+Okonomi-Dead Spicy": 0.5,
+                    "+Curry-Dead Spicy": 0.5,
+                    "+Gyudon-Dead Spicy": 0.5,
+                },
+                "noodleSoupRamen": {
+                    "Ramen-Miso": 12.9,
+                    "Ramen-Creamy,Spicy Sesame": 13.5,
+                    "Ramen-Angry Ramen": 13.9
+                },
+                "noodleSoupUdon": {
+                    "Udon-Kitsune": 12.9,
+                    "Udon-Kakiage/Niku/Curry/Sesame": 13.9,
+                    "Udon-EbiTempura": 14.9
+                },
+                "noodleSoupOptions": {
+                    "+Ramen-Egg": 1,
+                    "+Ramen-Dead Spicy": 0.5,
+                    "+Udon-Poached Egg": 1,
+                    "+Udon-Dead Spicy": 0.5,
+                },
+                "sideDish": {
+                    "Edamame/Kimchi/Wakame": 4.5,
+                    "Nikuman/Kakiage": 5.5,
+                    "Gyoza/VGyoza": 5.9,
+                    "Karaage": 6.3,
+                    // "Vegan Karaage": 6.5,
+                    "Ebi Tempura/Takoyaki": 6.9,
+                    "Onigiri": 4.3
+                },
+                "dessert": {
+                    "Ice Cream": 2,
+                    "Mochi/Dango/Taiyaki": 4.2,
+                    "Dorayaki/Melonpan": 4.6,
+                    "Crêpe": 7.9,
+                    "Honey Toast": 9.9,
+                    "Parfait": 7.9,
+                    "Sweets Set": 10.9
+                },
+                "dessertOptions": {
+                    "+Strawberry": 1,
+                    "+Ice cream": 1.5
+                },
+                "drinkCold": {
+                    "Float Drink": 6.9,
+                    "Creamy Latte": 6.5,
+                    "Bubble Tea": 5.2,
+                    "Cola/Zero/Water": 3.9,
+                    "Ramune/Erdinger": 4.2,
+                    "Eistee": 4.9,
+                    "Soda": 4.7,
+                },
+                "drinkHot": {
+                    "Hot Tea": 4.3,
+                    "Hot Latte": 5.7,
+                    "Hot Caffè Latte": 4.5,
+                    "Americano": 4.0
+                },
+                "drinkOptions": {
+                    "+Drink-Hafer": 0.5
+                }
+            };
 
-        Object.values(menuItems).forEach(item => Object.assign(price, item));
+            Object.values(menuItems).forEach(item => Object.assign(price, item));
 
 
 
+            // function addFoodItem(area, priceList) {
+            //     for (let [key, value] of Object.entries(priceList)) {
+            //         let food = document.createElement("input");
+            //         food.setAttribute("type", "checkbox");
+            //         food.setAttribute("onclick", "onTap(this)");
+            //         food.setAttribute("id", key);
+            //         area.appendChild(food);
+
+            //         let label = document.createElement("label");
+            //         label.setAttribute("for", key);
+            //         label.innerHTML = `${key} ${value} `;
+            //         area.appendChild(label);
+
+            //         area.appendChild(document.createElement("br"));
+            //     }
+            // }
+            
             function addFoodItem(area, priceList) {
-            for (let [key, value] of Object.entries(priceList)) {
-                let food = document.createElement("input");
-                food.setAttribute("type", "checkbox");
-                food.setAttribute("onclick", "onTap(this)");
-                food.setAttribute("id", key);
-                area.appendChild(food);
+                for (let [key, value] of Object.entries(priceList)) {
+                    const container = document.createElement("div");
+                    container.classList.add("menu-item");
 
-                let label = document.createElement("label");
-                label.setAttribute("for", key);
-                label.innerHTML = `${key} ${value} `;
-                area.appendChild(label);
+                    const food = document.createElement("input");
+                    food.setAttribute("type", "checkbox");
+                    food.setAttribute("onclick", "onTap(this)");
+                    food.setAttribute("id", key);
 
-                area.appendChild(document.createElement("br"));
+                    const label = document.createElement("label");
+                    label.setAttribute("for", key);
+                    label.innerHTML = `${key} ${value}`;
+
+                    container.appendChild(food);
+                    container.appendChild(label);
+                    area.appendChild(container);
+                }
             }
-        }
 
-        addFoodItem(document.querySelector("#classics_area"), menuItems.classics);
-        addFoodItem(document.querySelector("#classics_options_area"), menuItems.classicsOptions);
-        addFoodItem(document.querySelector("#noodle_soup_ramen_area"), menuItems.noodleSoupRamen);
-        addFoodItem(document.querySelector("#noodle_soup_udon_area"), menuItems.noodleSoupUdon);
-        addFoodItem(document.querySelector("#noodle_soup_options_area"), menuItems.noodleSoupOptions);
-        addFoodItem(document.querySelector("#side_dish_area"), menuItems.sideDish);
-        addFoodItem(document.querySelector("#dessert_area"), menuItems.dessert);
-        addFoodItem(document.querySelector("#dessert_options_area"), menuItems.dessertOptions);
-        addFoodItem(document.querySelector("#drink_cold_area"), menuItems.drinkCold);
-        addFoodItem(document.querySelector("#drink_hot_area"), menuItems.drinkHot);
-        addFoodItem(document.querySelector("#drink_options_area"), menuItems.drinkOptions);
+
+
+
+
+            addFoodItem(document.querySelector("#classics_area"), menuItems.classics);
+            addFoodItem(document.querySelector("#classics_options_area"), menuItems.classicsOptions);
+            addFoodItem(document.querySelector("#noodle_soup_ramen_area"), menuItems.noodleSoupRamen);
+            addFoodItem(document.querySelector("#noodle_soup_udon_area"), menuItems.noodleSoupUdon);
+            addFoodItem(document.querySelector("#noodle_soup_options_area"), menuItems.noodleSoupOptions);
+            addFoodItem(document.querySelector("#side_dish_area"), menuItems.sideDish);
+            addFoodItem(document.querySelector("#dessert_area"), menuItems.dessert);
+            addFoodItem(document.querySelector("#dessert_options_area"), menuItems.dessertOptions);
+            addFoodItem(document.querySelector("#drink_cold_area"), menuItems.drinkCold);
+            addFoodItem(document.querySelector("#drink_hot_area"), menuItems.drinkHot);
+            addFoodItem(document.querySelector("#drink_options_area"), menuItems.drinkOptions);
 
 
 
