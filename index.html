@@ -6,8 +6,83 @@
 
     <head>
 
-    <body>
         <style type="text/css">
+            .bg_white {
+                background-color: #ffffff;
+                font-weight: bold;
+            }
+    
+            .bg_on_focus {
+                background-color: hsl(51, 100%, 50%);
+                font-weight: bold;
+            }
+    
+            body {
+                font-size: 60px;
+            }
+    
+            #rest_button {
+                width: 600px;
+                height: 100px;
+                font-size: 1.6em;
+            }
+    
+            .align_wrap {
+                text-align: center;
+            }
+    
+            #subtotal_display {
+                background-color: #6633cc;
+                color: #ffffff;
+            }
+    
+            .menu-item {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+    
+            input[type=checkbox] {
+                transform: scale(2.5);
+                margin-right: 20px;
+            }
+    
+            #ordered_items_header {
+                text-align: center;
+            }
+    
+            .warning_area {
+                font-size: 85%;
+            }
+    
+            #first_warning {
+                color: red;
+            }
+    
+            .table-buttons {
+                text-align: center;
+                margin-bottom: 20px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                max-width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            .table-buttons button {
+                font-size: 1.5em;
+                padding: 15px;
+                width: 100%;
+                height: 70px;
+                cursor: pointer;
+                text-align: center;
+            }
+        </style>
+
+        </head>
+    <body>
+        <!-- <style type="text/css">
             .bg_white {
                 background-color: #ffffff;
                 font-weight: bold;
@@ -115,11 +190,7 @@
                 background-color: #06f;
                 /* チェックした時の色 */
             }
-        </style>
-
-
-        <!-- カテゴリ名をかく。他の部分より大きめに。
-ビーガンを緑に。 -->
+        </style> -->
 
 
         <div　id="menu">
@@ -132,26 +203,23 @@
             </text>
             <br>
 
-            <!-- <hr>
-            【Onigiri/オニギリ】
-            <div id="onigiri_area">
+            <div class="table-buttons">
+                <button onclick="selectTable('A')">A</button>
+                <button onclick="selectTable('B')">B</button>
+                <button onclick="selectTable('1')">1</button>
+                <button onclick="selectTable('2')">2</button>
+                <button onclick="selectTable('3')">3</button>
+                <button onclick="selectTable('4')">4</button>
+                <button onclick="selectTable('5')">5</button>
+                <button onclick="selectTable('6')">6</button>
+                <button onclick="selectTable('7')">7</button>
+                <button onclick="selectTable('8')">8</button>
+                <button onclick="selectTable('9')">9</button>
+                <button onclick="selectTable('S1')">S1</button>
+                <button onclick="selectTable('S2')">S2</button>
+                <button onclick="selectTable('S3')">S3</button>
+                <button onclick="selectTable('S4')">S4</button>
             </div>
-
-            【Burrito/ブリトー】
-            <div id="burrito_area"></div>
-
-            <hr>
-            【SIDE DISHES/サイド】
-            <div id="side_dishes_area">
-            </div>
-
-            <hr>
-            【Cold Drinks/冷たい飲み物】
-            <div id="cold_drinks_area"></div>
-
-            <hr>
-            【Warm Drinks/温かい飲み物】
-            <div id="warm_drinks_area"></div> -->
 
             <hr>
             【Classics】
@@ -396,7 +464,7 @@
             //         area.appendChild(document.createElement("br"));
             //     }
             // }
-            
+
             function addFoodItem(area, priceList) {
                 for (let [key, value] of Object.entries(priceList)) {
                     const container = document.createElement("div");
