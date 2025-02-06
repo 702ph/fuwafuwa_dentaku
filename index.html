@@ -5,63 +5,63 @@
     <title>FUWAFUWA DENTAKU</title>
 
     <head>
-      
+
         <style type="text/css">
             .bg_white {
                 background-color: #ffffff;
                 font-weight: bold;
             }
-    
+
             .bg_on_focus {
                 background-color: hsl(51, 100%, 50%);
                 font-weight: bold;
             }
-    
+
             body {
                 font-size: 60px;
                 margin: 0;
                 padding: 0;
                 background-color: #ffffff;
             }
-    
+
             #rest_button {
                 width: 600px;
                 height: 100px;
                 font-size: 1.6em;
             }
-    
+
             .align_wrap {
                 text-align: center;
             }
-    
+
             #subtotal_display {
                 background-color: #6633cc;
                 color: #ffffff;
             }
-    
+
             .menu-item {
                 display: flex;
                 align-items: center;
                 gap: 20px;
             }
-    
+
             input[type=checkbox] {
                 transform: scale(2.5);
                 margin-right: 20px;
             }
-    
+
             #ordered_items_header {
                 text-align: center;
             }
-    
+
             .warning_area {
                 font-size: 85%;
             }
-    
+
             #first_warning {
                 color: red;
             }
-    
+
             .table-buttons {
                 text-align: center;
                 margin-bottom: 20px;
@@ -72,7 +72,7 @@
                 padding: 0 5px;
                 box-sizing: border-box;
             }
-    
+
             .table-buttons button {
                 font-size: 1.5em;
                 padding: 10px;
@@ -90,7 +90,7 @@
                 background-color: #ffffff;
                 border: 2px solid #aaa;
             }
-    
+
             .table-buttons button.active {
                 background-color: #6633cc;
                 border-color: #4a2596;
@@ -100,184 +100,76 @@
 
 
     </head>
-    <body>
-        <!-- <style type="text/css">
-            .bg_white {
-                background-color: #ffffff;
-                font-weight: bold;
-            }
 
-            .bg_on_focus {
-                background-color: hsl(51, 100%, 50%);
-                font-weight: bold;
-            }
-
-            body {
-                font-size: 60px;
-            }
-
-            #rest_button {
-                width: 600px;
-                height: 100px;
-                font-size: 1.6em;
-
-            }
-
-            .align_wrap {
-                text-align: center;
-            }
-
-            #subtotal_display {
-                background-color: #6633cc;
-                color: #ffffff;
-            }
-
-            /* input[type=checkbox] {
-                transform: scale(2.5);
-            } */
-
-            .menu-item {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-            }
-
-            input[type=checkbox] {
-                transform: scale(2.5);
-                margin-right: 20px;
-            }
+<body>
 
 
+    <div　id="menu">
 
-            #ordered_items_header {
-                text-align: center;
-            }
+        <text class="warning_area" id="first_warning">
+            <!-- 案内文が必要なときはここに。 -->
+        </text>
+        <text class="warning_area">
+            免責事項：自己責任でご使用ください。
+        </text>
+        <br>
 
-            .warning_area {
-                font-size: 85%;
-            }
-
-            #first_warning {
-                color: red;
-            }
-
-            /* この名前のクラスにdivに与えて、そのdivでinputを加工必要がある。
-        https://blog.raizzenet.com/change-size-checkbox/ */
-            /* ちなみにまだ今回はこの.chkboxというクラスはないので下記のスタイルシートは適用されない */
-            .chkbox {
-                margin: 0 0 10px 20px;
-            }
-
-            .chkbox label {
-                padding-left: 38px;
-                /* ラベルの位置 */
-                font-size: 32px;
-                line-height: 32px;
-                display: inline-block;
-                cursor: pointer;
-                position: relative;
-            }
-
-            /* ボックスのスタイル */
-            .chkbox label:before {
-                content: '';
-                width: 160px;
-                /* ボックスの横幅 */
-                height: 160px;
-                /* ボックスの縦幅 */
-                display: inline-block;
-                position: absolute;
-                left: 0;
-                background-color: #fff;
-                box-shadow: inset 1px 2px 3px 0px #000;
-                border-radius: 6px 6px 6px 6px;
-            }
-
-            /* 元のチェックボックスを表示しない */
-            .chkbox input[type=checkbox] {
-                display: none;
-            }
-
-            /* チェックした時のスタイル */
-            .chkbox input[type=checkbox]:checked+label:before {
-                content: '\2713';
-                /* チェックの文字 */
-                font-size: 34px;
-                /* チェックのサイズ */
-                color: #fff;
-                /* チェックの色 */
-                background-color: #06f;
-                /* チェックした時の色 */
-            }
-        </style> -->
-
-
-        <div　id="menu">
-
-            <text class="warning_area" id="first_warning">
-                <!-- 案内文が必要なときはここに。 -->
-            </text>
-            <text class="warning_area">
-                免責事項：自己責任でご使用ください。
-            </text>
-            <br>
-
-            <div class="table-buttons">
-                <button onclick="toggleTable(this, 'A')">A</button>
-                <button onclick="toggleTable(this, 'B')">B</button>
-                <button onclick="toggleTable(this, '1')">1</button>
-                <button onclick="toggleTable(this, '2')">2</button>
-                <button onclick="toggleTable(this, '3')">3</button>
-                <button onclick="toggleTable(this, '4')">4</button>
-                <button onclick="toggleTable(this, '5')">5</button>
-                <button onclick="toggleTable(this, '6')">6</button>
-                <button onclick="toggleTable(this, '7')">7</button>
-                <button onclick="toggleTable(this, '8')">8</button>
-                <button onclick="toggleTable(this, '9')">9</button>
-                <button onclick="toggleTable(this, 'S1')">S1</button>
-                <button onclick="toggleTable(this, 'S2')">S2</button>
-                <button onclick="toggleTable(this, 'S3')">S3</button>
-                <button onclick="toggleTable(this, 'S4')">S4</button>
-            </div>
-
-            <hr>
-            【Classics】
-            <div id="classics_area"></div>
-            <hr>
-            <div id="classics_options_area"></div>
-
-            <hr>
-            【Noodle】
-            <div id="noodle_soup_ramen_area"></div>
-            <div id="noodle_soup_udon_area"></div>
-            <div id="noodle_soup_options_area"></div>
-
-            <hr>
-            【Side Dish】
-            <div id="side_dish_area"></div>
-
-            <hr>
-            【Dessert】
-            <div id="dessert_area"></div>
-            <div id="dessert_options_area"></div>
-
-            <hr>
-            【Drink】
-            <div id="drink_cold_area"></div>
-            <div id="drink_hot_area"></div>
-            <div id="drink_options_area"></div>
-
-
+        <div class="table-buttons">
+            <button onclick="toggleTable(this, 'A')">A</button>
+            <button onclick="toggleTable(this, 'B')">B</button>
+            <button onclick="toggleTable(this, '1')">1</button>
+            <button onclick="toggleTable(this, '2')">2</button>
+            <button onclick="toggleTable(this, '3')">3</button>
+            <button onclick="toggleTable(this, '4')">4</button>
+            <button onclick="toggleTable(this, '5')">5</button>
+            <button onclick="toggleTable(this, '6')">6</button>
+            <button onclick="toggleTable(this, '7')">7</button>
+            <button onclick="toggleTable(this, '8')">8</button>
+            <button onclick="toggleTable(this, '9')">9</button>
+            <button onclick="toggleTable(this, 'S1')">S1</button>
+            <button onclick="toggleTable(this, 'S2')">S2</button>
+            <button onclick="toggleTable(this, 'S3')">S3</button>
+            <button onclick="toggleTable(this, 'S4')">S4</button>
         </div>
 
-        <!-- subtotal display area-->
         <hr>
-        <text id=current_item>Last added: </text>
-        <br>
-        合計額: <text id="subtotal_display">0</text>
+        【Classics】
+        <div id="classics_area"></div>
+        <hr>
+        <div id="classics_options_area"></div>
+
+        <hr>
+        【Noodle】
+        <div id="noodle_soup_ramen_area"></div>
+        <div id="noodle_soup_udon_area"></div>
+        <div id="noodle_soup_options_area"></div>
+
+        <hr>
+        【Side Dish】
+        <div id="side_dish_area"></div>
+
+        <hr>
+        【Dessert】
+        <div id="dessert_area"></div>
+        <div id="dessert_options_area"></div>
+
+        <hr>
+        【Drink】
+        <div id="drink_cold_area"></div>
+        <div id="drink_hot_area"></div>
+        <div id="drink_options_area"></div>
 
 
-        <!--
+    </div>
+
+    <!-- subtotal display area-->
+    <hr>
+    <text id=current_item>Last added: </text>
+    <br>
+    合計額: <text id="subtotal_display">0</text>
+
+
+    <!--
         <br>
         お釣り： <text id="change_display"></text>
 
@@ -292,464 +184,372 @@
             onfocus="bgChangeIn(this)">
         -->
 
-        <hr>
-        <div class="align_wrap">
-            <button id="rest_button" onclick="reset()">CLEAR</button>
-        </div>
+    <hr>
+    <div class="align_wrap">
+        <button id="rest_button" onclick="reset()">CLEAR</button>
+    </div>
 
-        <hr style="height: 5px; background-color: #000; border: none;">
-        <h3 id="instruction_header" style="text-align: center;">Kitchen Instruction Slip</h3>
-        <div id="selected_table" style="border: 2px solid #aaa; padding: 5px; text-align: center; width: 33%; min-height: 40px; margin: 0 auto; font-size: 1.5em;"></div>
-   
-        <h3 id="ordered_items_header">
-            オーダー数/ORDERED: <text id="num_items_display">0</text>
-        </h3>
-        <div style="color: red; font-weight:bold">
-            <!--
+    <hr style="height: 5px; background-color: #000; border: none;">
+    <h3 id="instruction_header" style="text-align: center;">Kitchen Instruction Slip</h3>
+    <div id="selected_table"
+        style="border: 2px solid #aaa; padding: 5px; text-align: center; width: 33%; min-height: 40px; margin: 0 auto; font-size: 1.5em;">
+    </div>
+
+    <h3 id="ordered_items_header">
+        オーダー数/ORDERED: <text id="num_items_display">0</text>
+    </h3>
+    <div style="color: red; font-weight:bold">
+        <!--
             オーダーカードと数の突き合わせをすること！
             MATCH THE NUMBER ON THE ORDER CARD!
             -->
-        </div>
+    </div>
 
-        <ul type="disc" id="order_list_display_area"></ul>
-        <br>
+    <ul type="disc" id="order_list_display_area"></ul>
+    <br>
 
 
-        <!-- TODO: 子クラスとか作れるんかなあ？SideDishesクラスの小クラスのedamameとか-->
+    <!-- TODO: 子クラスとか作れるんかなあ？SideDishesクラスの小クラスのedamameとか-->
 
-        <script language="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
 
-            function checkNumber(obj) {
-                const str = obj.value;
-                if (str.match(/[^0-9]/g)) {
-                    alert("半角数値以外が入力されています");
-                }
+        function checkNumber(obj) {
+            const str = obj.value;
+            if (str.match(/[^0-9]/g)) {
+                alert("半角数値以外が入力されています");
+            }
+        }
+
+
+        //todo: CSSもやる気なく適応。もはや玉虫色。
+        function bgChangeIn(obj) {
+            obj.className = "bg_on_focus";
+        }
+
+
+        function bgChangeOut(obj) {
+            obj.className = "bg_white";
+        }
+
+
+        function calcOnBlur(elem) {
+            bgChangeOut(elem);
+            calcChange();
+        }
+
+
+        //reset. clear all selection and calculation result
+        function reset() {
+            let checkbox = document.querySelectorAll('input[type="checkbox"]');
+            let input = document.querySelectorAll('input[type="number"]');
+            const orderListDisplayArea = document.querySelector("#order_list_display_area");
+
+
+            checkbox.forEach(elem => elem.checked = false);
+            input.forEach(elem => elem.value = "");
+            orderListDisplayArea.innerHTML = null;
+
+            // clear food items
+            //attn: A = []; will set new empty array. but the original array will remain unchanged!
+            foodItems.length = 0;
+
+            currentItemDisplay.innerText = "";
+            subtotalDisplay.innerText = "0";
+            document.querySelector("#change_display").innerText = ""; //統一感がないが直すやる気なし。
+        }
+
+
+        function calcChange() {
+            const sumAsked = document.querySelector("#sum_asked");
+            const sumReceived = document.querySelector("#sum_received");
+            let changeDisplay = document.querySelector("#change_display");
+
+            if (!(sumAsked.value === "") && (Number(sumAsked.value) < Number(subtotalDisplay.innerText))) {
+                changeDisplay.innerText = "エラー❗お客さんの申し出額が飲食合計額を下回っている！";
             }
 
-
-            //todo: CSSもやる気なく適応。もはや玉虫色。
-            function bgChangeIn(obj) {
-                obj.className = "bg_on_focus";
+            else if (!(sumReceived.value === "") && (Number(sumReceived.value) < Number(subtotalDisplay.innerText))) {
+                changeDisplay.innerText = "エラー❗お客さんからの受取額が飲食合計額を下回っている！！";
             }
 
-
-            function bgChangeOut(obj) {
-                obj.className = "bg_white";
+            else if (!(sumAsked.value === "") && !(sumReceived.value === "")) {
+                //好奇心でNumber()を使用している
+                const change = Number(sumReceived.value) - Number(sumAsked.value);
+                changeDisplay.innerText = (change < 0) ? "エラー❗受取額は申し出額より多くなければならない！！" : change;
             }
+        }
 
 
-            function calcOnBlur(elem) {
-                bgChangeOut(elem);
-                calcChange();
+        //商品メニュー
+        const price = {}
+
+        const menuItems = {
+            "classics": {
+                "Okonomi-Beef&Bonito": 13.9,
+                "Okonomi-Vegetarian": 12.9,
+                "Okonomi-Vegan": 11.9,
+                "Curry-Beef": 12.9,
+                "Curry-Chicken": 12.9,
+                "Curry-Vegetarian": 11.9,
+                "Curry-Vegan": 10.9,
+                "Gyudon": 13.9
+            },
+            "classicsOptions": {
+                "+Okonomi-Hiroshima Noodles": 2,
+                "+Okonomi-Bonito": 0.5,
+                "+Okonomi-Dead Spicy": 0.5,
+                "+Curry-Dead Spicy": 0.5,
+                "+Gyudon-Dead Spicy": 0.5,
+            },
+            "noodleSoupRamen": {
+                "Ramen-Miso": 12.9,
+                "Ramen-Creamy,Spicy Sesame": 13.5,
+                "Ramen-Angry Ramen": 13.9
+            },
+            "noodleSoupUdon": {
+                "Udon-Kitsune": 12.9,
+                "Udon-Kakiage/Niku/Curry/Sesame": 13.9,
+                "Udon-EbiTempura": 14.9
+            },
+            "noodleSoupOptions": {
+                "+Ramen-Egg": 1,
+                "+Ramen-Dead Spicy": 0.5,
+                "+Udon-Poached Egg": 1,
+                "+Udon-Dead Spicy": 0.5,
+            },
+            "sideDish": {
+                "Edamame/Kimchi/Wakame": 4.5,
+                "Nikuman/Kakiage": 5.5,
+                "Gyoza/VGyoza": 5.9,
+                "Karaage": 6.3,
+                // "Vegan Karaage": 6.5,
+                "Ebi Tempura/Takoyaki": 6.9,
+                "Onigiri": 4.3
+            },
+            "dessert": {
+                "Ice Cream": 2,
+                "Mochi/Dango/Taiyaki": 4.2,
+                "Dorayaki/Melonpan": 4.6,
+                "Crêpe": 7.9,
+                "Honey Toast": 9.9,
+                "Parfait": 7.9,
+                "Sweets Set": 10.9
+            },
+            "dessertOptions": {
+                "+Strawberry": 1,
+                "+Ice cream": 1.5
+            },
+            "drinkCold": {
+                "Float Drink": 6.9,
+                "Creamy Latte": 6.5,
+                "Bubble Tea": 5.2,
+                "Cola/Zero/Water": 3.9,
+                "Ramune/Erdinger": 4.2,
+                "Eistee": 4.9,
+                "Soda": 4.7,
+            },
+            "drinkHot": {
+                "Hot Tea": 4.3,
+                "Hot Latte": 5.7,
+                "Hot Caffè Latte": 4.5,
+                "Americano": 4.0
+            },
+            "drinkOptions": {
+                "+Drink-Hafer": 0.5
             }
+        };
 
+        Object.values(menuItems).forEach(item => Object.assign(price, item));
 
-            //reset. clear all selection and calculation result
-            function reset() {
-                let checkbox = document.querySelectorAll('input[type="checkbox"]');
-                let input = document.querySelectorAll('input[type="number"]');
-                const orderListDisplayArea = document.querySelector("#order_list_display_area");
+        function addFoodItem(area, priceList) {
+            for (let [key, value] of Object.entries(priceList)) {
+                const container = document.createElement("div");
+                container.classList.add("menu-item");
 
+                const food = document.createElement("input");
+                food.setAttribute("type", "checkbox");
+                food.setAttribute("onclick", "onTap(this)");
+                food.setAttribute("id", key);
 
-                checkbox.forEach(elem => elem.checked = false);
-                input.forEach(elem => elem.value = "");
-                orderListDisplayArea.innerHTML = null;
+                const label = document.createElement("label");
+                label.setAttribute("for", key);
+                label.innerHTML = `${key} ${value}`;
 
-                // clear food items
-                //attn: A = []; will set new empty array. but the original array will remain unchanged!
-                foodItems.length = 0;
-
-                currentItemDisplay.innerText = "";
-                subtotalDisplay.innerText = "0";
-                document.querySelector("#change_display").innerText = ""; //統一感がないが直すやる気なし。
+                container.appendChild(food);
+                container.appendChild(label);
+                area.appendChild(container);
             }
+        }
 
 
-            function calcChange() {
-                const sumAsked = document.querySelector("#sum_asked");
-                const sumReceived = document.querySelector("#sum_received");
-                let changeDisplay = document.querySelector("#change_display");
+        addFoodItem(document.querySelector("#classics_area"), menuItems.classics);
+        addFoodItem(document.querySelector("#classics_options_area"), menuItems.classicsOptions);
+        addFoodItem(document.querySelector("#noodle_soup_ramen_area"), menuItems.noodleSoupRamen);
+        addFoodItem(document.querySelector("#noodle_soup_udon_area"), menuItems.noodleSoupUdon);
+        addFoodItem(document.querySelector("#noodle_soup_options_area"), menuItems.noodleSoupOptions);
+        addFoodItem(document.querySelector("#side_dish_area"), menuItems.sideDish);
+        addFoodItem(document.querySelector("#dessert_area"), menuItems.dessert);
+        addFoodItem(document.querySelector("#dessert_options_area"), menuItems.dessertOptions);
+        addFoodItem(document.querySelector("#drink_cold_area"), menuItems.drinkCold);
+        addFoodItem(document.querySelector("#drink_hot_area"), menuItems.drinkHot);
+        addFoodItem(document.querySelector("#drink_options_area"), menuItems.drinkOptions);
 
-                if (!(sumAsked.value === "") && (Number(sumAsked.value) < Number(subtotalDisplay.innerText))) {
-                    changeDisplay.innerText = "エラー❗お客さんの申し出額が飲食合計額を下回っている！";
-                }
 
-                else if (!(sumReceived.value === "") && (Number(sumReceived.value) < Number(subtotalDisplay.innerText))) {
-                    changeDisplay.innerText = "エラー❗お客さんからの受取額が飲食合計額を下回っている！！";
-                }
-
-                else if (!(sumAsked.value === "") && !(sumReceived.value === "")) {
-                    //好奇心でNumber()を使用している
-                    const change = Number(sumReceived.value) - Number(sumAsked.value);
-                    changeDisplay.innerText = (change < 0) ? "エラー❗受取額は申し出額より多くなければならない！！" : change;
-                }
+        // food item classes and factory
+        class FoodItem {
+            constructor(name, price) {
+                //this.id = id;
+                this.name = name;
+                this.price = price;
             }
+        }
 
 
-            //商品メニュー
-            const price = {}
-
-            const menuItems = {
-                "classics": {
-                    "Okonomi-Beef&Bonito": 13.9,
-                    "Okonomi-Vegetarian": 12.9,
-                    "Okonomi-Vegan": 11.9,
-                    "Curry-Beef": 12.9,
-                    "Curry-Chicken": 12.9,
-                    "Curry-Vegetarian": 11.9,
-                    "Curry-Vegan": 10.9,
-                    "Gyudon": 13.9
-                },
-                "classicsOptions": {
-                    "+Okonomi-Hiroshima Noodles": 2,
-                    "+Okonomi-Bonito": 0.5,
-                    "+Okonomi-Dead Spicy": 0.5,
-                    "+Curry-Dead Spicy": 0.5,
-                    "+Gyudon-Dead Spicy": 0.5,
-                },
-                "noodleSoupRamen": {
-                    "Ramen-Miso": 12.9,
-                    "Ramen-Creamy,Spicy Sesame": 13.5,
-                    "Ramen-Angry Ramen": 13.9
-                },
-                "noodleSoupUdon": {
-                    "Udon-Kitsune": 12.9,
-                    "Udon-Kakiage/Niku/Curry/Sesame": 13.9,
-                    "Udon-EbiTempura": 14.9
-                },
-                "noodleSoupOptions": {
-                    "+Ramen-Egg": 1,
-                    "+Ramen-Dead Spicy": 0.5,
-                    "+Udon-Poached Egg": 1,
-                    "+Udon-Dead Spicy": 0.5,
-                },
-                "sideDish": {
-                    "Edamame/Kimchi/Wakame": 4.5,
-                    "Nikuman/Kakiage": 5.5,
-                    "Gyoza/VGyoza": 5.9,
-                    "Karaage": 6.3,
-                    // "Vegan Karaage": 6.5,
-                    "Ebi Tempura/Takoyaki": 6.9,
-                    "Onigiri": 4.3
-                },
-                "dessert": {
-                    "Ice Cream": 2,
-                    "Mochi/Dango/Taiyaki": 4.2,
-                    "Dorayaki/Melonpan": 4.6,
-                    "Crêpe": 7.9,
-                    "Honey Toast": 9.9,
-                    "Parfait": 7.9,
-                    "Sweets Set": 10.9
-                },
-                "dessertOptions": {
-                    "+Strawberry": 1,
-                    "+Ice cream": 1.5
-                },
-                "drinkCold": {
-                    "Float Drink": 6.9,
-                    "Creamy Latte": 6.5,
-                    "Bubble Tea": 5.2,
-                    "Cola/Zero/Water": 3.9,
-                    "Ramune/Erdinger": 4.2,
-                    "Eistee": 4.9,
-                    "Soda": 4.7,
-                },
-                "drinkHot": {
-                    "Hot Tea": 4.3,
-                    "Hot Latte": 5.7,
-                    "Hot Caffè Latte": 4.5,
-                    "Americano": 4.0
-                },
-                "drinkOptions": {
-                    "+Drink-Hafer": 0.5
-                }
-            };
-
-            Object.values(menuItems).forEach(item => Object.assign(price, item));
+        class SideDishes extends FoodItem {
+        }
 
 
-
-            // function addFoodItem(area, priceList) {
-            //     for (let [key, value] of Object.entries(priceList)) {
-            //         let food = document.createElement("input");
-            //         food.setAttribute("type", "checkbox");
-            //         food.setAttribute("onclick", "onTap(this)");
-            //         food.setAttribute("id", key);
-            //         area.appendChild(food);
-
-            //         let label = document.createElement("label");
-            //         label.setAttribute("for", key);
-            //         label.innerHTML = `${key} ${value} `;
-            //         area.appendChild(label);
-
-            //         area.appendChild(documen t.createElement("br"));
-            //     }
-            // }
-
-            function addFoodItem(area, priceList) {
-                for (let [key, value] of Object.entries(priceList)) {
-                    const container = document.createElement("div");
-                    container.classList.add("menu-item");
-
-                    const food = document.createElement("input");
-                    food.setAttribute("type", "checkbox");
-                    food.setAttribute("onclick", "onTap(this)");
-                    food.setAttribute("id", key);
-
-                    const label = document.createElement("label");
-                    label.setAttribute("for", key);
-                    label.innerHTML = `${key} ${value}`;
-
-                    container.appendChild(food);
-                    container.appendChild(label);
-                    area.appendChild(container);
-                }
+        class FoodItemFactory {
+            make(foodItemName) {
+                return new FoodItem(foodItemName, price[foodItemName]);
             }
+        }
 
 
-            addFoodItem(document.querySelector("#classics_area"), menuItems.classics);
-            addFoodItem(document.querySelector("#classics_options_area"), menuItems.classicsOptions);
-            addFoodItem(document.querySelector("#noodle_soup_ramen_area"), menuItems.noodleSoupRamen);
-            addFoodItem(document.querySelector("#noodle_soup_udon_area"), menuItems.noodleSoupUdon);
-            addFoodItem(document.querySelector("#noodle_soup_options_area"), menuItems.noodleSoupOptions);
-            addFoodItem(document.querySelector("#side_dish_area"), menuItems.sideDish);
-            addFoodItem(document.querySelector("#dessert_area"), menuItems.dessert);
-            addFoodItem(document.querySelector("#dessert_options_area"), menuItems.dessertOptions);
-            addFoodItem(document.querySelector("#drink_cold_area"), menuItems.drinkCold);
-            addFoodItem(document.querySelector("#drink_hot_area"), menuItems.drinkHot);
-            addFoodItem(document.querySelector("#drink_options_area"), menuItems.drinkOptions);
+        //create factory instance
+        const foodItemFactory = new FoodItemFactory();
 
 
-
-            // add food item with line break
-            // (display area, pricelist, position for line break)
-            // function addFoodItem(area, priceList, lineBreak) {
-            //     let index = 0;
-            //     for (let [key, value] of Object.entries(priceList)) {
-            //         //TODO:外に出す =>外に出すと挙動が変わるようだ。毎回新しい要素として作成する必要があるようだ。
-            //         //使い回すと、最後の要素が新規の要素に上書きされてしまうようだ。
-            //         let food = document.createElement("Input");
-            //         food.setAttribute("type", "checkbox");
-            //         food.setAttribute("onclick", "onTap(this)");
-            //         food.setAttribute("id", key)
-            //         area.appendChild(food);
-
-            //         let label = document.createElement("Label");
-            //         label.setAttribute("for", key);
-            //         label.innerHTML = key + " " + value + " ";
-            //         area.appendChild(label);
-
-            //         if (index === lineBreak[0]) {
-            //             // if (isLineBreak){
-            //             const br = document.createElement("br");
-            //             area.appendChild(br);
-            //             lineBreak.shift();
-            //         }
-            //         index++;
-            //     }
-            // }
+        //subtotal area
+        let currentItemDisplay = document.querySelector("#current_item");
+        let subtotalDisplay = document.querySelector("#subtotal_display");
+        const numItemsDisplay = document.querySelector("#num_items_display");
 
 
+        // calculation
+        let foodItems = new Array();
 
-            // //TODO: これ以降も自動化したい
-            // // add item for vorspeisen
-            // let vorspeisenArea = document.querySelector("#onigiri_area");
-            // addFoodItem(vorspeisenArea, onigiriPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+        function onTap(elem) {
+            console.log(elem);
 
-            // // add item for finger food
-            // let sideDishesArea = document.querySelector("#side_dishes_area");
-            // addFoodItem(sideDishesArea, sideDishesPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+            const itemName = elem.id
+            const itemPrice = price[itemName];
 
-            // // add item for finger food
-            // let burittoArea = document.querySelector("#burrito_area");
-            // addFoodItem(burittoArea, burittoPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
-
-            // // add item for toppings
-            // let extraArea = document.querySelector("#extra_area");
-            // addFoodItem(extraArea, extraPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-
-            // // add item for toppings
-            // let toppingArea = document.querySelector("#topping_area");
-            // addFoodItem(toppingArea, extraToppingPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-
-            // let lunchMenuArea = document.querySelector("#lunch_menu_area");
-            // addFoodItem(lunchMenuArea, lunchMenuPriceList,
-            //     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,]);
-
-            // // add item for desert
-            // let dessertArea = document.querySelector("#dessert_area");
-            // addFoodItem(dessertArea, dessertPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8]);
-
-            // // add item for warm drinks
-            // let warmDrinksArea = document.querySelector("#warm_drinks_area");
-            // addFoodItem(warmDrinksArea, warmDrinksPriceList, [0, 1, 2, 3]);
-
-            // // add item for cold drinks
-            // let coldDrinksArea = document.querySelector("#cold_drinks_area");
-            // addFoodItem(coldDrinksArea, coldDrinksPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
-
-            // let riceDishArea = document.querySelector("#rice_dish_area");
-            // addFoodItem(riceDishArea, riceDishPriceList, [0, 1, 2, 3]);
-
-            // let otherItemArea = document.querySelector("#other_item_area");
-            // addFoodItem(otherItemArea, otherItemPriceList, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,]);
-
-
-            // food item classes and factory
-            class FoodItem {
-                constructor(name, price) {
-                    //this.id = id;
-                    this.name = name;
-                    this.price = price;
-                }
-            }
-
-
-            class SideDishes extends FoodItem {
-            }
-
-
-            class FoodItemFactory {
-                make(foodItemName) {
-                    return new FoodItem(foodItemName, price[foodItemName]);
-                }
-            }
-
-
-            //create factory instance
-            const foodItemFactory = new FoodItemFactory();
-
-
-            //subtotal area
-            let currentItemDisplay = document.querySelector("#current_item");
-            let subtotalDisplay = document.querySelector("#subtotal_display");
-            const numItemsDisplay = document.querySelector("#num_items_display");
-
-
-            // calculation
-            let foodItems = new Array();
-
-            function onTap(elem) {
-                console.log(elem);
-
-                const itemName = elem.id
-                const itemPrice = price[itemName];
-
-                if (elem.checked) {
-                    //create food item
-                    const foodItem = foodItemFactory.make(itemName);
-                    console.log(foodItem);
-                    foodItems.push(foodItem);
-
-                    // show in subtotal display area
-                    currentItemDisplay.innerText = "Last added: " + foodItem.name + ":" + foodItem.price;
-                    redrawSubtotalDisplay(foodItems);
-                    reRenderNumItmDisplay(foodItems);
-
-                    //renew display
-                    redrawOrderListDisplay(foodItems);
-
-                    //debug
-                    console.log(foodItems);
-
-                } else {
-                    //delete item
-                    foodItems = foodItems.filter(elem => elem.name !== itemName);
-
-                    //calc sum
-                    const totalPrice = calcSum(foodItems); //ここでも上と統一感なし。まあええわ。
-                    subtotalDisplay.innerText = totalPrice.toFixed(2);
-                    currentItemDisplay.innerText = "";
-
-                    //number of items 
-                    reRenderNumItmDisplay(foodItems);
-
-                    //redraw display
-                    redrawOrderListDisplay(foodItems);
-
-                    //debug
-                    console.log("totalPrice: " + totalPrice.toFixed(2));
-                    console.log(foodItems);
-                }
-            }
-
-
-            function duplicateItem(item) {
-                // received item
-                const itemName = item.firstElementChild.firstElementChild.innerText;
-
-                //debug
-                console.log(itemName);
-
+            if (elem.checked) {
                 //create food item
                 const foodItem = foodItemFactory.make(itemName);
                 console.log(foodItem);
                 foodItems.push(foodItem);
 
-                // redraw in subtotal display area
+                // show in subtotal display area
                 currentItemDisplay.innerText = "Last added: " + foodItem.name + ":" + foodItem.price;
                 redrawSubtotalDisplay(foodItems);
+                reRenderNumItmDisplay(foodItems);
+
+                //renew display
+                redrawOrderListDisplay(foodItems);
+
+                //debug
+                console.log(foodItems);
+
+            } else {
+                //delete item
+                foodItems = foodItems.filter(elem => elem.name !== itemName);
+
+                //calc sum
+                const totalPrice = calcSum(foodItems); //ここでも上と統一感なし。まあええわ。
+                subtotalDisplay.innerText = totalPrice.toFixed(2);
+                currentItemDisplay.innerText = "";
+
+                //number of items 
                 reRenderNumItmDisplay(foodItems);
 
                 //redraw display
                 redrawOrderListDisplay(foodItems);
 
                 //debug
+                console.log("totalPrice: " + totalPrice.toFixed(2));
                 console.log(foodItems);
             }
+        }
 
 
-            function calcSum(foodItems) {
-                return foodItems.reduce((sum, elem) => sum + elem.price, 0);
-            }
+        function duplicateItem(item) {
+            // received item
+            const itemName = item.firstElementChild.firstElementChild.innerText;
+
+            //debug
+            console.log(itemName);
+
+            //create food item
+            const foodItem = foodItemFactory.make(itemName);
+            console.log(foodItem);
+            foodItems.push(foodItem);
+
+            // redraw in subtotal display area
+            currentItemDisplay.innerText = "Last added: " + foodItem.name + ":" + foodItem.price;
+            redrawSubtotalDisplay(foodItems);
+            reRenderNumItmDisplay(foodItems);
+
+            //redraw display
+            redrawOrderListDisplay(foodItems);
+
+            //debug
+            console.log(foodItems);
+        }
 
 
-            function redrawSubtotalDisplay(foodItems) {
-                const totalPrice = calcSum(foodItems);
-                subtotalDisplay.innerText = totalPrice.toFixed(2);
-
-                //debug
-                console.log("totalPrice: " + totalPrice.toFixed(2));
-            }
-
-            function reRenderNumItmDisplay(foodItems) {
-                // const totalPrice = calcSum(foodItems);
-                // numItemsDisplay.innerHTML = null;
-                console.log("foodItems.length:", foodItems.length)
-                numItemsDisplay.innerText = foodItems.length;
-            }
+        function calcSum(foodItems) {
+            return foodItems.reduce((sum, elem) => sum + elem.price, 0);
+        }
 
 
-            function redrawOrderListDisplay(foodItems) {
+        function redrawSubtotalDisplay(foodItems) {
+            const totalPrice = calcSum(foodItems);
+            subtotalDisplay.innerText = totalPrice.toFixed(2);
 
-                const orderListDisplayArea = document.querySelector("#order_list_display_area");
-                // const numItemsDisplay = document.querySelector("#num_items_display");
+            //debug
+            console.log("totalPrice: " + totalPrice.toFixed(2));
+        }
 
-                //clear
-                orderListDisplayArea.innerHTML = null;
-                // numItemsDisplay.innerHTML = null;
+        function reRenderNumItmDisplay(foodItems) {
+            // const totalPrice = calcSum(foodItems);
+            // numItemsDisplay.innerHTML = null;
+            console.log("foodItems.length:", foodItems.length)
+            numItemsDisplay.innerText = foodItems.length;
+        }
 
-                // show list
-                foodItems.forEach(elem => {
-                    const foodItemName = document.createElement("text");
-                    foodItemName.innerText = elem.name;
 
-                    const foodItemPrice = document.createElement("text");
-                    foodItemPrice.innerText = ": " + elem.price;
+        function redrawOrderListDisplay(foodItems) {
 
-                    const divInFoodItem = document.createElement("div");
-                    divInFoodItem.appendChild(foodItemName);
-                    divInFoodItem.appendChild(foodItemPrice);
+            const orderListDisplayArea = document.querySelector("#order_list_display_area");
+            // const numItemsDisplay = document.querySelector("#num_items_display");
 
-                    const foodItem = document.createElement("li");
-                    foodItem.setAttribute("onclick", "duplicateItem(this)");
-                    foodItem.appendChild(divInFoodItem);
+            //clear
+            orderListDisplayArea.innerHTML = null;
+            // numItemsDisplay.innerHTML = null;
 
-                    orderListDisplayArea.appendChild(foodItem);
-                });
-            }
+            // show list
+            foodItems.forEach(elem => {
+                const foodItemName = document.createElement("text");
+                foodItemName.innerText = elem.name;
 
-            function toggleTable(button, table) {
+                const foodItemPrice = document.createElement("text");
+                foodItemPrice.innerText = ": " + elem.price;
+
+                const divInFoodItem = document.createElement("div");
+                divInFoodItem.appendChild(foodItemName);
+                divInFoodItem.appendChild(foodItemPrice);
+
+                const foodItem = document.createElement("li");
+                foodItem.setAttribute("onclick", "duplicateItem(this)");
+                foodItem.appendChild(divInFoodItem);
+
+                orderListDisplayArea.appendChild(foodItem);
+            });
+        }
+
+        function toggleTable(button, table) {
             let buttons = document.querySelectorAll(".table-buttons button");
             buttons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
@@ -757,8 +557,8 @@
         }
 
 
-        </script>
+    </script>
 
-    </body>
+</body>
 
 </html>
