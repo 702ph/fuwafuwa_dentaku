@@ -5,7 +5,7 @@
     <title>FUWAFUWA DENTAKU</title>
 
     <head>
-
+      
         <style type="text/css">
             .bg_white {
                 background-color: #ffffff;
@@ -19,6 +19,9 @@
     
             body {
                 font-size: 60px;
+                margin: 0;
+                padding: 0;
+                background-color: #ffffff;
             }
     
             #rest_button {
@@ -64,23 +67,39 @@
                 margin-bottom: 20px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                max-width: 90%;
-                margin-left: auto;
-                margin-right: auto;
+                gap: 5px;
+                width: 100vw;
+                padding: 0 5px;
+                box-sizing: border-box;
             }
     
             .table-buttons button {
                 font-size: 1.5em;
-                padding: 15px;
+                padding: 10px;
                 width: 100%;
-                height: 70px;
+                height: 80px;
                 cursor: pointer;
                 text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                background-color: #ffffff;
+                border: 2px solid #aaa;
+            }
+    
+            .table-buttons button.active {
+                background-color: #6633cc;
+                border-color: #4a2596;
+                color: #ffffff;
             }
         </style>
 
-        </head>
+
+    </head>
     <body>
         <!-- <style type="text/css">
             .bg_white {
@@ -204,21 +223,21 @@
             <br>
 
             <div class="table-buttons">
-                <button onclick="selectTable('A')">A</button>
-                <button onclick="selectTable('B')">B</button>
-                <button onclick="selectTable('1')">1</button>
-                <button onclick="selectTable('2')">2</button>
-                <button onclick="selectTable('3')">3</button>
-                <button onclick="selectTable('4')">4</button>
-                <button onclick="selectTable('5')">5</button>
-                <button onclick="selectTable('6')">6</button>
-                <button onclick="selectTable('7')">7</button>
-                <button onclick="selectTable('8')">8</button>
-                <button onclick="selectTable('9')">9</button>
-                <button onclick="selectTable('S1')">S1</button>
-                <button onclick="selectTable('S2')">S2</button>
-                <button onclick="selectTable('S3')">S3</button>
-                <button onclick="selectTable('S4')">S4</button>
+                <button onclick="toggleTable(this, 'A')">A</button>
+                <button onclick="toggleTable(this, 'B')">B</button>
+                <button onclick="toggleTable(this, '1')">1</button>
+                <button onclick="toggleTable(this, '2')">2</button>
+                <button onclick="toggleTable(this, '3')">3</button>
+                <button onclick="toggleTable(this, '4')">4</button>
+                <button onclick="toggleTable(this, '5')">5</button>
+                <button onclick="toggleTable(this, '6')">6</button>
+                <button onclick="toggleTable(this, '7')">7</button>
+                <button onclick="toggleTable(this, '8')">8</button>
+                <button onclick="toggleTable(this, '9')">9</button>
+                <button onclick="toggleTable(this, 'S1')">S1</button>
+                <button onclick="toggleTable(this, 'S2')">S2</button>
+                <button onclick="toggleTable(this, 'S3')">S3</button>
+                <button onclick="toggleTable(this, 'S4')">S4</button>
             </div>
 
             <hr>
@@ -486,9 +505,6 @@
             }
 
 
-
-
-
             addFoodItem(document.querySelector("#classics_area"), menuItems.classics);
             addFoodItem(document.querySelector("#classics_options_area"), menuItems.classicsOptions);
             addFoodItem(document.querySelector("#noodle_soup_ramen_area"), menuItems.noodleSoupRamen);
@@ -731,7 +747,11 @@
                 });
             }
 
-            //show number of items
+        function toggleTable(button, table) {
+            let buttons = document.querySelectorAll(".table-buttons button");
+            buttons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+        }
 
 
         </script>
