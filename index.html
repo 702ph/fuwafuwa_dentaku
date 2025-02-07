@@ -137,6 +137,15 @@
             <button onclick="toggleTable(this, 'も')">も</button>
         </div>
 
+
+        <hr>
+        【Lunch】
+        <div id="lunch_area"></div>
+
+        <hr>
+        【Side Dish】
+        <div id="side_dish_area"></div>
+
         <hr>
         【Classics】
         <div id="classics_area"></div>
@@ -150,10 +159,6 @@
         <div id="noodle_soup_options_area"></div>
 
         <hr>
-        【Side Dish】
-        <div id="side_dish_area"></div>
-
-        <hr>
         【Dessert】
         <div id="dessert_area"></div>
         <div id="dessert_options_area"></div>
@@ -163,8 +168,6 @@
         <div id="drink_cold_area"></div>
         <div id="drink_hot_area"></div>
         <div id="drink_options_area"></div>
-
-
     </div>
 
     <!-- subtotal display area-->
@@ -306,16 +309,26 @@
                 "+Curry-Dead Spicy": 0.5,
                 "+Gyudon-Dead Spicy": 0.5,
             },
+            "lunch": {
+                "Lunch Vegan Tofu Soup": 6.9,
+                "Lunch Chicken Soup": 8.9,
+                "Lunch Beef Soup": 9.9,
+                "Gyoza Soup": 9.9,
+                "Vegan Gyoza Soup": 9.9
+            },
             "noodleSoupRamen": {
                 "Ramen-Miso": 12.9,
                 "Ramen-Creamy,Spicy Sesame": 13.5,
                 "Ramen-Angry Ramen": 13.9
             },
             "noodleSoupUdon": {
-                "Udon-Kitsune": 12.9,
-                "Udon-Kakiage/Niku/Curry/Sesame": 13.9,
-                "Udon-EbiTempura": 14.9
-            },
+            "Udon-Kitsune": 12.9,
+            "Udon-Kakiage": 13.9,
+            "Udon-Niku": 13.9,
+            "Udon-Curry": 13.9,
+            "Udon-Sesame": 13.9,
+            "Udon-EbiTempura": 14.9
+        },
             "noodleSoupOptions": {
                 "+Ramen-Egg": 1,
                 "+Ramen-Dead Spicy": 0.5,
@@ -389,6 +402,7 @@
 
         addFoodItem(document.querySelector("#classics_area"), menuItems.classics);
         addFoodItem(document.querySelector("#classics_options_area"), menuItems.classicsOptions);
+        addFoodItem(document.querySelector("#lunch_area"), menuItems.lunch);
         addFoodItem(document.querySelector("#noodle_soup_ramen_area"), menuItems.noodleSoupRamen);
         addFoodItem(document.querySelector("#noodle_soup_udon_area"), menuItems.noodleSoupUdon);
         addFoodItem(document.querySelector("#noodle_soup_options_area"), menuItems.noodleSoupOptions);
