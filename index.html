@@ -140,6 +140,22 @@
                 border-color: #4a2596;
                 color: #ffffff;
             }
+
+            .print-button {
+            width: 600px;
+            height: 100px;
+            font-size: 1.6em;
+            cursor: pointer;
+            background-color: #6633cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            margin: 20px auto;
+        }
+
+
         </style>
 
     </head>
@@ -237,7 +253,8 @@
 
     <hr style="height: 5px; background-color: #000; border: none;">
 
-    <button class="print-button" onclick="printSection()">Print</button>
+    <button class="print-button" onclick="printSection()">PRINT</button>
+    
 
     <div id="printable-section">
         <h3 id="instruction_header" style="text-align: center;">
@@ -264,9 +281,9 @@
 
     <script language="javascript" type="text/javascript">
 
-        // function printSection() {
-        //     window.print();
-        // }
+        function printSection() {
+            window.print();
+        }
 
         function checkNumber(obj) {
             const str = obj.value;
