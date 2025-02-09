@@ -5,8 +5,36 @@
     <title>FUWAFUWA DENTAKU</title>
 
     <head>
-
         <style type="text/css">
+            @media print {
+                body * {
+                    visibility: hidden;
+                }
+
+                #printable-section,
+                #printable-section * {
+                    visibility: visible;
+                }
+
+                #printable-section {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: auto;
+                    overflow: hidden;
+                    page-break-after: avoid;
+                }
+
+                html,
+                body {
+                    height: auto;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+
             body {
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             }
@@ -208,28 +236,37 @@
     </div>
 
     <hr style="height: 5px; background-color: #000; border: none;">
-    <h3 id="instruction_header" style="text-align: center;">Kitchen Instruction Slip</h3>
-    <div id="selected_table"
-        style="border: 2px solid #aaa; padding: 5px; text-align: center; width: 33%; min-height: 40px; margin: 0 auto; font-size: 1.5em;">
-    </div>
 
-    <h3 id="ordered_items_header">
-        オーダー数/ORDERED: <text id="num_items_display">0</text>
-    </h3>
-    <div style="color: red; font-weight:bold">
-        <!--
+    <button class="print-button" onclick="printSection()">Print</button>
+
+    <div id="printable-section">
+        <h3 id="instruction_header" style="text-align: center;">
+            Kitchen Instruction Slip
+        </h3>
+        <div id="selected_table"
+            style="border: 2px solid #aaa; padding: 5px; text-align: center; width: 33%; min-height: 40px; margin: 0 auto; font-size: 1.5em;">
+        </div>
+
+        <h3 id="ordered_items_header">
+            オーダー数/ORDERED: <text id="num_items_display">0</text>
+        </h3>
+        <div style="color: red; font-weight:bold">
+            <!--
             オーダーカードと数の突き合わせをすること！
             MATCH THE NUMBER ON THE ORDER CARD!
             -->
+        </div>
+        <ul type="disc" id="order_list_display_area"></ul>
     </div>
 
-    <ul type="disc" id="order_list_display_area"></ul>
     <br>
-
-
     <!-- TODO: 子クラスとか作れるんかなあ？SideDishesクラスの小クラスのedamameとか-->
 
     <script language="javascript" type="text/javascript">
+
+        // function printSection() {
+        //     window.print();
+        // }
 
         function checkNumber(obj) {
             const str = obj.value;
@@ -237,7 +274,6 @@
                 alert("半角数値以外が入力されています");
             }
         }
-
 
         //todo: CSSもやる気なく適応。もはや玉虫色。
         function bgChangeIn(obj) {
